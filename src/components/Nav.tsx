@@ -14,6 +14,7 @@ const Nav: React.FC = () => {
     { href: '#analysis',       label: 'Analysis' },
     { href: '#solution',       label: 'Solution' },
     { href: '#implementation', label: 'Roadmap' },
+    { href: '#data',           label: 'Data' },
   ];
 
   return (
