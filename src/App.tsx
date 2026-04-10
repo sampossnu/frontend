@@ -5,7 +5,7 @@ import Problem from './components/Problem';
 import Analysis from './components/Analysis';
 import Solution from './components/Solution';
 import Implementation from './components/Implementation';
-import DataAnalysis from './components/DataAnalysis';
+import Simulator from './components/Simulator';
 import Footer from './components/Footer';
 
 const CurveDivider: React.FC = () => (
@@ -24,8 +24,8 @@ const App: React.FC = () => (
     <Problem />
     <Analysis />
     <Solution />
+    <Simulator />
     <Implementation />
-    <DataAnalysis />
     <Footer />
   </>
 );

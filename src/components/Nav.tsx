@@ -13,9 +13,9 @@ const Nav: React.FC = () => {
     { href: '#problem',        label: 'Problem' },
     { href: '#analysis',       label: 'Analysis' },
     { href: '#solution',       label: 'Solution' },
+    { href: '#simulator',      label: 'Simulator' },
     { href: '#implementation', label: 'Roadmap' },
-    { href: '#data',           label: 'Data' },
-  ];
+];
 
   return (
     <nav style={{
