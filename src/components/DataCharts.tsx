@@ -1,6 +1,9 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
 
+// ── Real TAAS Data (2020–2024) ─────────────────────────────
+// Source: TAAS (교통사고분석시스템), Korea Road Traffic Authority
+
 // ── Animated Number ────────────────────────────────────────
 export const AnimatedNumber: React.FC<{ target: number; suffix?: string; duration?: number }> = ({ target, suffix = '', duration = 1200 }) => {
   const [val, setVal] = React.useState(0);
@@ -47,7 +50,7 @@ const BarChart: React.FC<{ data: BarData[]; title: string; subtitle: string }> =
           <div key={d.label}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '.25rem' }}>
               <span style={{ fontSize: '.8rem', color: 'var(--text)', fontWeight: 500 }}>{d.label}</span>
-              <span style={{ fontSize: '.8rem', fontWeight: 700, color: d.color }}>{d.value}</span>
+              <span style={{ fontSize: '.8rem', fontWeight: 700, color: d.color }}>{d.value}%</span>
             </div>
             <div style={{ height: 8, background: 'var(--lgray)', borderRadius: 4, overflow: 'hidden' }}>
               <div style={{ height: '100%', background: d.color, borderRadius: 4, width: inView ? `${(d.value / max) * 100}%` : '0%', transition: `width .8s ease ${i * 0.1}s` }} />
@@ -102,50 +105,58 @@ const LineChart: React.FC<{ data: number[]; labels: string[]; color: string; tit
 const DataCharts: React.FC = () => (
   <>
     <p style={{ fontSize: '.9rem', color: 'var(--mgray)', marginTop: '2rem', marginBottom: '2rem', lineHeight: 1.6 }}>
-      Based on TAAS (Traffic Accident Analysis System) 2019–2023 · Korea Road Traffic Authority · Samsung Traffic Safety Research Institute
+      Based on TAAS (Traffic Accident Analysis System), Korea Road Traffic Authority, 2020–2024
     </p>
 
+    {/* Stat Callouts — real TAAS figures */}
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1rem', marginBottom: '2.5rem' }}>
-      <StatCallout val={35000} suffix="+" label="Elderly driver accidents (2023)" color="#dc2626" delay={0} />
-      <StatCallout val={16}    suffix="%" label="Share of total accidents"        color="#6d28d9" delay={0.1} />
-      <StatCallout val={41}    suffix="M" label="Elderly license holders"         color="#1d4ed8" delay={0.2} />
-      <StatCallout val={8}     suffix="%" label="YoY growth in elderly drivers"   color="#d97706" delay={0.3} />
+      <StatCallout val={42369} suffix=""   label="Elderly driver accidents in 2024"      color="#dc2626" delay={0} />
+      <StatCallout val={36}    suffix="%"  label="Increase in accidents, 2020→2024"      color="#6d28d9" delay={0.1} />
+      <StatCallout val={761}   suffix=""   label="Elderly driver deaths in 2024"         color="#1d4ed8" delay={0.2} />
+      <StatCallout val={43}    suffix="%"  label="Accidents occur between 10AM–4PM"      color="#d97706" delay={0.3} />
     </div>
 
+    {/* Line Charts — real TAAS figures */}
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem', marginBottom: '1.5rem' }}>
-      <LineChart title="Elderly Accident Share" subtitle="2019–2023, % of total accidents" data={[14.5, 14.8, 15.2, 15.3, 15.9]} labels={['2019','2020','2021','2022','2023']} color="#6d28d9" unit="%" />
-      <LineChart title="Elderly Fatality Rate"  subtitle="Deaths per 100 accidents"        data={[2.51, 2.73, 2.81, 2.60, 2.53]} labels={['2019','2020','2021','2022','2023']} color="#dc2626" unit="" />
-      <LineChart title="Elderly License Holders" subtitle="Age 65+, in millions"           data={[3.1, 3.3, 3.6, 3.8, 4.1]}     labels={['2019','2020','2021','2022','2023']} color="#1d4ed8" unit="M" />
+      <LineChart
+        title="Elderly Driver Accidents"
+        subtitle="Annual cases, 2020–2024 (Source: TAAS)"
+        data={[31072, 31841, 34652, 39614, 42369]}
+        labels={['2020','2021','2022','2023','2024']}
+        color="#6d28d9" unit="" />
+      <LineChart
+        title="Elderly Driver Fatality Rate"
+        subtitle="Deaths per 100 accidents, 2020–2024 (Source: TAAS)"
+        data={[2.32, 2.23, 2.12, 1.88, 1.80]}
+        labels={['2020','2021','2022','2023','2024']}
+        color="#dc2626" unit="%" />
+      <LineChart
+        title="Elderly Driver Deaths"
+        subtitle="Annual deaths, 2020–2024 (Source: TAAS)"
+        data={[720, 709, 735, 745, 761]}
+        labels={['2020','2021','2022','2023','2024']}
+        color="#1d4ed8" unit="" />
     </div>
 
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-      <BarChart
-        title="Accident Rate by Age Group (2023)"
-        subtitle="Accidents per 10,000 license holders"
-        data={[
-          { label: '20s', value: 12.4, color: '#d97706' },
-          { label: '30s', value: 8.1,  color: '#059669' },
-          { label: '40s', value: 9.3,  color: '#059669' },
-          { label: '50s', value: 10.2, color: '#d97706' },
-          { label: '60s', value: 12.8, color: '#d97706' },
-          { label: '70s', value: 18.6, color: '#dc2626' },
-          { label: '80+', value: 24.1, color: '#dc2626' },
-        ]}
-      />
-      <BarChart
-        title="Fatality Rate by Age Group (2023)"
-        subtitle="Deaths per 100 accidents"
-        data={[
-          { label: '20s', value: 1.1, color: '#059669' },
-          { label: '30s', value: 0.9, color: '#059669' },
-          { label: '40s', value: 1.0, color: '#059669' },
-          { label: '50s', value: 1.2, color: '#d97706' },
-          { label: '60s', value: 1.8, color: '#d97706' },
-          { label: '70s', value: 2.9, color: '#dc2626' },
-          { label: '80+', value: 4.2, color: '#dc2626' },
-        ]}
-      />
-    </div>
+    {/* Bar Chart — real time distribution */}
+    <BarChart
+      title="Accident Time Distribution (2020–2024)"
+      subtitle="Share of total elderly driver accidents by time slot (Source: TAAS)"
+      data={[
+        { label: '0~2h',   value: 1.7,  color: '#94a3b8' },
+        { label: '2~4h',   value: 0.9,  color: '#94a3b8' },
+        { label: '4~6h',   value: 2.2,  color: '#94a3b8' },
+        { label: '6~8h',   value: 5.8,  color: '#94a3b8' },
+        { label: '8~10h',  value: 12.0, color: '#1d4ed8' },
+        { label: '10~12h', value: 14.3, color: '#dc2626' },
+        { label: '12~14h', value: 14.0, color: '#dc2626' },
+        { label: '14~16h', value: 14.5, color: '#dc2626' },
+        { label: '16~18h', value: 14.3, color: '#dc2626' },
+        { label: '18~20h', value: 11.2, color: '#1d4ed8' },
+        { label: '20~22h', value: 5.8,  color: '#94a3b8' },
+        { label: '22~24h', value: 3.0,  color: '#94a3b8' },
+      ]}
+    />
   </>
 );
 
