@@ -21,8 +21,10 @@ const Hero: React.FC = () => (
       </h1>
 
       <p className={styles.sub}>
-        Real-Time Cognitive Monitoring Insurance Platform for Elderly Drivers —
-        transforming reactive insurance into proactive road safety.
+        Real-Time Cognitive Monitoring Insurance Platform for Elderly Drivers
+        <br />
+        {' '}
+        — transforming reactive insurance into proactive road safety.
       </p>
 
       <div className={styles.stats}>

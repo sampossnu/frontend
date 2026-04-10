@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
 import SectionLabel from './SectionLabel';
+import DataCharts from './DataCharts';
 
 const Panel: React.FC<{ title: string; delay?: number; children: React.ReactNode }> = ({ title, delay = 0, children }) => {
   const { ref, inView } = useInView();
@@ -87,6 +88,15 @@ const Analysis: React.FC = () => (
           {unsolved.map((u, i) => <UnsolvedCard key={u.title} item={u} delay={i * 0.1} />)}
         </div>
       </div>
+
+      {/* Data Charts */}
+      <div style={{ marginTop: '4rem' }}>
+        <div style={{ fontFamily:"'Syne',sans-serif", fontSize:'1.5rem', fontWeight:800, color:'var(--navy)', letterSpacing:'-.02em', marginBottom:'.5rem' }}>
+          Supporting Evidence
+        </div>
+        <DataCharts />
+      </div>
+
     </div>
   </section>
 );
