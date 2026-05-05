@@ -1,0 +1,162 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.progressWrap {
+  margin-bottom: 28px;
+}
+
+.progressLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #185FA5;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #185FA5;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 6px;
+  letter-spacing: -0.4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #64748B;
+  margin: 0 0 28px;
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.fieldWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1E293B;
+  background: white;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.select:focus {
+  border-color: #185FA5;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1E293B;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #185FA5;
+}
+
+.unit {
+  font-size: 13px;
+  color: #64748B;
+  flex-shrink: 0;
+}
+
+.btnRow {
+  display: flex;
+  gap: 12px;
+}
+
+.btnOutline {
+  flex: 1;
+  padding: 14px;
+  background: white;
+  color: #185FA5;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid #185FA5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnOutline:hover {
+  background: #EBF3FF;
+}
+
+.btnPrimary {
+  flex: 2;
+  padding: 14px;
+  background: #185FA5;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #145394;
+}

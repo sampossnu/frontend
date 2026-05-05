@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background: #f8f9fb;
+  color: #1a202c;
+  -webkit-font-smoothing: antialiased;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}

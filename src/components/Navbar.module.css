@@ -1,0 +1,61 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  background: #185FA5;
+  box-shadow: 0 2px 8px rgba(24, 95, 165, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #185FA5;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.backBtn {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
