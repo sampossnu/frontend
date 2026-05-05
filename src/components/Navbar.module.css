@@ -4,8 +4,8 @@
   justify-content: space-between;
   padding: 0 24px;
   height: 56px;
-  background: #185FA5;
-  box-shadow: 0 2px 8px rgba(24, 95, 165, 0.15);
+  background: #111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -20,7 +20,7 @@
 .logoIcon {
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.2);
+  background: white;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -37,9 +37,10 @@
 .badge {
   font-size: 10px;
   font-weight: 700;
-  color: #185FA5;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 2px 6px;
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 2px 7px;
   border-radius: 4px;
   letter-spacing: 0.5px;
 }

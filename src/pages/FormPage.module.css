@@ -11,7 +11,7 @@
 .progressLabel {
   font-size: 13px;
   font-weight: 600;
-  color: #185FA5;
+  color: #7B3FF0;
   display: block;
   margin-bottom: 8px;
 }
@@ -26,7 +26,7 @@
 
 .progressFill {
   height: 100%;
-  background: #185FA5;
+  background: #7B3FF0;
   border-radius: 999px;
   transition: width 0.3s ease;
 }
@@ -83,7 +83,7 @@
 }
 
 .select:focus {
-  border-color: #185FA5;
+  border-color: #7B3FF0;
 }
 
 .selectIcon {
@@ -113,7 +113,7 @@
 }
 
 .input:focus {
-  border-color: #185FA5;
+  border-color: #7B3FF0;
 }
 
 .unit {
@@ -131,23 +131,23 @@
   flex: 1;
   padding: 14px;
   background: white;
-  color: #185FA5;
+  color: #7B3FF0;
   font-size: 15px;
   font-weight: 600;
-  border: 1.5px solid #185FA5;
+  border: 1.5px solid #7B3FF0;
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .btnOutline:hover {
-  background: #EBF3FF;
+  background: #F3E8FF;
 }
 
 .btnPrimary {
   flex: 2;
   padding: 14px;
-  background: #185FA5;
+  background: #7B3FF0;
   color: white;
   font-size: 15px;
   font-weight: 700;
@@ -158,5 +158,5 @@
 }
 
 .btnPrimary:hover {
-  background: #145394;
+  background: #6A32D9;
 }
