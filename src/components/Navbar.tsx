@@ -19,7 +19,7 @@ export default function Navbar({ showBack, onReset }: NavbarProps) {
             />
             <path
               d="M9 12l2 2 4-4"
-              stroke="#185FA5"
+              stroke="#111"
               strokeWidth="2"
               strokeLinecap="round"
               fill="none"

@@ -170,7 +170,7 @@ export default function ResultPage({ result, onBack, onReset }: ResultPageProps)
                   <svg width="12" height="12" viewBox="0 0 12 12">
                     <path
                       d="M2 6l3 3 5-5"
-                      stroke="#185FA5"
+                      stroke="#7B3FF0"
                       strokeWidth="1.5"
                       strokeLinecap="round"
                       fill="none"

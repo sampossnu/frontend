@@ -92,7 +92,7 @@
 
 .tabActive {
   background: white;
-  color: #185FA5;
+  color: #7B3FF0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -170,7 +170,7 @@
 .checkIcon {
   width: 22px;
   height: 22px;
-  background: #EBF3FF;
+  background: #F3E8FF;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -212,7 +212,7 @@
 
 .bubbleUser {
   align-self: flex-end;
-  background: #185FA5;
+  background: #7B3FF0;
   color: white;
   font-size: 14px;
   padding: 10px 14px;
@@ -276,12 +276,12 @@
 }
 
 .chatInput:focus {
-  border-color: #185FA5;
+  border-color: #7B3FF0;
 }
 
 .sendBtn {
   padding: 10px 18px;
-  background: #185FA5;
+  background: #7B3FF0;
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -293,7 +293,7 @@
 }
 
 .sendBtn:hover:not(:disabled) {
-  background: #145394;
+  background: #6A32D9;
 }
 
 .sendBtn:disabled {
@@ -310,7 +310,7 @@
 .quickBtn {
   padding: 8px 14px;
   background: white;
-  color: #185FA5;
+  color: #7B3FF0;
   font-size: 13px;
   font-weight: 500;
   border: 1.5px solid #CBD5E1;
@@ -320,8 +320,8 @@
 }
 
 .quickBtn:hover {
-  background: #EBF3FF;
-  border-color: #185FA5;
+  background: #F3E8FF;
+  border-color: #7B3FF0;
 }
 
 .bottomBtns {
@@ -333,23 +333,23 @@
   flex: 1;
   padding: 14px;
   background: white;
-  color: #185FA5;
+  color: #7B3FF0;
   font-size: 15px;
   font-weight: 600;
-  border: 1.5px solid #185FA5;
+  border: 1.5px solid #7B3FF0;
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .btnOutline:hover {
-  background: #EBF3FF;
+  background: #F3E8FF;
 }
 
 .btnPrimary {
   flex: 1;
   padding: 14px;
-  background: #185FA5;
+  background: #7B3FF0;
   color: white;
   font-size: 15px;
   font-weight: 700;
@@ -360,5 +360,5 @@
 }
 
 .btnPrimary:hover {
-  background: #145394;
+  background: #6A32D9;
 }
