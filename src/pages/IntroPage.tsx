@@ -14,9 +14,10 @@ const FEATURES = [
 export default function IntroPage({ onStart }: IntroPageProps) {
   return (
     <div className={styles.page}>
+
+      {/* ── 1st screen: Title + CTA + 3D ── */}
       <section className={styles.hero}>
 
-        {/* ── Left: Text Content ── */}
         <div className={styles.content}>
           <div className={styles.metaRow}>
             <span className={styles.metaDot} />
@@ -32,17 +33,6 @@ export default function IntroPage({ onStart }: IntroPageProps) {
             가입 확률과 그 이유를 투명하게 제공합니다.
           </p>
 
-          <div className={styles.featureList}>
-            {FEATURES.map((f) => (
-              <div key={f.num} className={styles.featureItem}>
-                <span className={styles.featureNum}>{f.num}</span>
-                <span className={styles.featureName}>{f.title}</span>
-                <span className={styles.featureSep}>—</span>
-                <span className={styles.featureDesc}>{f.desc}</span>
-              </div>
-            ))}
-          </div>
-
           <div className={styles.ctaRow}>
             <button className={styles.startBtn} onClick={onStart}>
               심사 시작하기
@@ -54,7 +44,6 @@ export default function IntroPage({ onStart }: IntroPageProps) {
           </div>
         </div>
 
-        {/* ── Right: Spline 3D ── */}
         <div className={styles.splinePanel}>
           <iframe
             src="https://my.spline.design/interactivekeyboardbyabhinand-gwHiNCRREVrYiqJ75YExD1wN/"
@@ -65,6 +54,21 @@ export default function IntroPage({ onStart }: IntroPageProps) {
         </div>
 
       </section>
+
+      {/* ── 2nd screen: Feature List ── */}
+      <section className={styles.featureSection}>
+        <div className={styles.featureList}>
+          {FEATURES.map((f) => (
+            <div key={f.num} className={styles.featureItem}>
+              <span className={styles.featureNum}>{f.num}</span>
+              <span className={styles.featureName}>{f.title}</span>
+              <span className={styles.featureSep}>—</span>
+              <span className={styles.featureDesc}>{f.desc}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }
