@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+/* 1rem = 16px at 1440px viewport — everything scales proportionally */
+html {
+  font-size: calc(100vw / 90);
+}
+
 body {
   font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
   background: #f8f9fb;

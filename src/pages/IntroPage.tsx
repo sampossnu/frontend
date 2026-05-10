@@ -5,11 +5,6 @@ interface IntroPageProps {
   onStart: () => void;
 }
 
-const FEATURES = [
-  { num: "01", title: "확률 기반 심사", desc: "O/X 대신 정확한 % 수치 제공" },
-  { num: "02", title: "근거 기반 설명", desc: "약관 조항을 근거로 한 투명한 판단" },
-  { num: "03", title: "AI 상담", desc: "결과에 대해 AI에게 바로 질문" },
-];
 
 export default function IntroPage({ onStart }: IntroPageProps) {
   return (
@@ -55,17 +50,79 @@ export default function IntroPage({ onStart }: IntroPageProps) {
 
       </section>
 
-      {/* ── 2nd screen: Feature List ── */}
+      {/* ── 2nd screen: Feature Cards (Bento) ── */}
       <section className={styles.featureSection}>
-        <div className={styles.featureList}>
-          {FEATURES.map((f) => (
-            <div key={f.num} className={styles.featureItem}>
-              <span className={styles.featureNum}>{f.num}</span>
-              <span className={styles.featureName}>{f.title}</span>
-              <span className={styles.featureSep}>—</span>
-              <span className={styles.featureDesc}>{f.desc}</span>
+        <div className={styles.featureSectionInner}>
+
+          <div className={styles.featureHeader}>
+            <p className={styles.featureSectionLabel}>
+              <span className={styles.featureSectionDot} />
+              왜 InsureAI인가요?
+            </p>
+            <h2 className={styles.featureSectionTitle}>
+              <span>더 투명하고,</span>
+              <span className={styles.titleAccent}>더 정확하게.</span>
+            </h2>
+          </div>
+
+          <div className={styles.featureBento}>
+
+            {/* Card 01 - large, with stat */}
+            <div className={`${styles.featureCard} ${styles.cardWide}`}>
+              <span className={styles.featureCardNum}>01 / 확률 기반 심사</span>
+              <div className={styles.statBlock}>
+                <span className={styles.statRange}>0%</span>
+                <span className={styles.statBar} />
+                <span className={styles.statRangeEnd}>100<small>%</small></span>
+              </div>
+              <h3 className={styles.featureCardTitle}>
+                O/X가 아닌, <em>몇 %</em>로 답합니다.
+              </h3>
+              <p className={styles.featureCardDesc}>
+                기존 보험 심사처럼 단순한 통과/거절이 아니라,<br />
+                각 항목이 가입 가능성에 미치는 영향을 정확한 수치로 보여줍니다.
+              </p>
             </div>
-          ))}
+
+            {/* Card 02 - quote / citation */}
+            <div className={`${styles.featureCard} ${styles.cardQuote}`}>
+              <span className={styles.featureCardNum}>02 / 근거 기반 설명</span>
+              <div className={styles.quoteBlock}>
+                <span className={styles.quoteMark}>“</span>
+                <p className={styles.quoteText}>
+                  최근 5년 이내 입원 이력이 있는 경우<br />
+                  본 상품 가입은 제한될 수 있다.
+                </p>
+                <p className={styles.quoteCite}>— 약관 제5조 1항</p>
+                <span className={styles.quoteMarkEnd}>”</span>
+              </div>
+              <h3 className={styles.featureCardTitle}>
+                항상 결과와 함께 출처도 알려줍니다.
+              </h3>
+            </div>
+
+            {/* Card 03 - chat preview */}
+            <div className={`${styles.featureCard} ${styles.cardChat}`}>
+              <span className={styles.featureCardNum}>03 / AI 상담</span>
+              <div className={styles.chatPreview}>
+                <div className={styles.chatBubbleUser}>
+                  왜 점수가 낮게 나왔어?
+                </div>
+                <div className={styles.chatBubbleAi}>
+                  <span className={styles.chatDot} />
+                  <span className={styles.chatDot} />
+                  <span className={styles.chatDot} />
+                </div>
+              </div>
+              <h3 className={styles.featureCardTitle}>
+                궁금한 건 바로 물어보세요.
+              </h3>
+              <p className={styles.featureCardDesc}>
+                결과 페이지에서 AI에게 자유롭게 질문할 수 있습니다.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
