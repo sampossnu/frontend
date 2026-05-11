@@ -1,28 +1,29 @@
 .page {
+  min-height: calc(100vh - 56px);
   background: #f2f2f0;
-  height: calc(100vh - 3.5rem);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
 }
 
 /* ── Hero ── */
 .hero {
+  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  max-width: 1280px;
   width: 100%;
-  height: calc(100vh - 3.5rem);
-  padding: 0 2.78vw;
-  gap: 2vw;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  margin: 0 auto;
+  padding: 60px 40px 60px 160px;
+  gap: 40px;
+  min-height: calc(100vh - 56px);
 }
 
 /* ── Left Content ── */
 .content {
-  flex: 0 0 auto;
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -31,19 +32,19 @@
 .metaRow {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
+  gap: 8px;
+  margin-bottom: 48px;
 }
 
 .metaDot {
-  width: 0.375rem;
-  height: 0.375rem;
+  width: 6px;
+  height: 6px;
   background: #111;
   border-radius: 50%;
 }
 
 .metaText {
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: #888;
@@ -51,20 +52,20 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: clamp(44px, 5vw, 72px);
   font-weight: 800;
   color: #111;
   line-height: 1.15;
-  letter-spacing: -0.125rem;
-  margin: 0 0 2.25rem;
+  letter-spacing: -2px;
+  margin: 0 0 36px;
 }
 
 .subtitle {
-  font-size: 1.0625rem;
+  font-size: 17px;
   color: #777;
   line-height: 1.8;
-  margin: 0 0 2.75rem;
-  max-width: 27.5rem;
+  margin: 0 0 44px;
+  max-width: 440px;
 }
 
 /* ── 2nd screen: Feature Bento ── */
@@ -75,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4vh 5.5vw;
+  padding: 4vh 5vw;
   overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -86,24 +87,24 @@
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(5.625rem);
+  filter: blur(90px);
   pointer-events: none;
   z-index: 0;
 }
 
 .featureSection::before {
-  width: 38.75rem;
-  height: 38.75rem;
-  background: radial-gradient(circle, rgba(123, 63, 240, 0.7), transparent 70%);
-  top: -10rem;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(123, 63, 240, 0.2), transparent 70%);
+  top: -160px;
   left: 4%;
 }
 
 .featureSection::after {
-  width: 45rem;
-  height: 45rem;
-  background: radial-gradient(circle, rgba(255, 150, 210, 0.65), transparent 70%);
-  bottom: -12.5rem;
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(circle, rgba(255, 150, 210, 0.2), transparent 70%);
+  bottom: -200px;
   right: 2%;
 }
 
@@ -111,46 +112,47 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 90rem;
+  max-width: 1320px;
 }
 
 .featureHeader {
-  margin-bottom: 4vh;
+  margin-bottom: 12vh;
   display: flex;
   flex-direction: column;
-  gap: 1.5vh;
-  max-width: 56.25rem;
+  gap: 16px;
+  max-width: 900px;
 }
 
 .featureSectionLabel {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #7B3FF0;
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 10px;
   margin: 0;
 }
 
 .featureSectionDot {
-  width: 0.4375rem;
-  height: 0.4375rem;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #7B3FF0;
-  box-shadow: 0 0 0.75rem rgba(123, 63, 240, 0.5);
+  box-shadow: 0 0 12px rgba(123, 63, 240, 0.5);
 }
 
 .featureSectionTitle {
-  font-size: clamp(2rem, 6vh, 4.5rem);
+  font-size: clamp(28px, 3.5vw, 52px);
   font-weight: 800;
   color: #111;
-  letter-spacing: -0.125rem;
+  letter-spacing: -1px;
   line-height: 1.1;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 0.4em;
 }
 
 .titleAccent {
@@ -161,7 +163,7 @@
 .featureBento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 20px;
 }
 
 .featureCard {
@@ -173,26 +175,27 @@
     rgba(255, 255, 255, 0.06) 50%,
     rgba(255, 255, 255, 0.18) 100%
   );
-  backdrop-filter: blur(3rem) saturate(220%);
-  -webkit-backdrop-filter: blur(3rem) saturate(220%);
-  border-radius: 2rem;
-  padding: 2.78vw;
+  backdrop-filter: blur(48px) saturate(220%);
+  -webkit-backdrop-filter: blur(48px) saturate(220%);
+  border-radius: 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow:
-    inset 0 0.125rem 0 rgba(255, 255, 255, 0.95),
-    inset 0 -0.09375rem 0 rgba(255, 255, 255, 0.35),
-    inset 0.125rem 0 0 rgba(255, 255, 255, 0.25),
-    inset -0.125rem 0 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1rem 2.25rem -1rem rgba(0, 0, 0, 0.08),
-    0 0.0625rem 0.0625rem rgba(255, 255, 255, 0.6),
-    0 1.875rem 3.75rem -1.25rem rgba(40, 20, 80, 0.22),
-    0 0.5rem 1.5rem -0.5rem rgba(123, 63, 240, 0.14);
+    inset 0 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 2px 0 0 rgba(255, 255, 255, 0.25),
+    inset -2px 0 0 rgba(255, 255, 255, 0.25),
+    inset 0 -16px 36px -16px rgba(0, 0, 0, 0.08),
+    0 1px 1px rgba(255, 255, 255, 0.6),
+    0 30px 60px -20px rgba(40, 20, 80, 0.22),
+    0 8px 24px -8px rgba(123, 63, 240, 0.14);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Top diagonal sheen — like light hitting glass */
 .featureCard::before {
   content: '';
   position: absolute;
@@ -217,6 +220,7 @@
   transform: rotate(-2deg);
 }
 
+/* Bottom-right counter highlight (curved glass refraction feel) */
 .featureCard::after {
   content: '';
   position: absolute;
@@ -234,16 +238,16 @@
 }
 
 .featureCard:hover {
-  transform: translateY(-0.25rem);
+  transform: translateY(-4px);
   box-shadow:
-    inset 0 0.125rem 0 rgba(255, 255, 255, 1),
-    inset 0 -0.09375rem 0 rgba(255, 255, 255, 0.4),
-    inset 0.125rem 0 0 rgba(255, 255, 255, 0.3),
-    inset -0.125rem 0 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1rem 2.25rem -1rem rgba(0, 0, 0, 0.08),
-    0 0.0625rem 0.0625rem rgba(255, 255, 255, 0.6),
-    0 2.5rem 4.375rem -1.25rem rgba(40, 20, 80, 0.28),
-    0 0.75rem 2rem -0.5rem rgba(123, 63, 240, 0.22);
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 0 rgba(255, 255, 255, 0.4),
+    inset 2px 0 0 rgba(255, 255, 255, 0.3),
+    inset -2px 0 0 rgba(255, 255, 255, 0.3),
+    inset 0 -16px 36px -16px rgba(0, 0, 0, 0.08),
+    0 1px 1px rgba(255, 255, 255, 0.6),
+    0 40px 70px -20px rgba(40, 20, 80, 0.28),
+    0 12px 32px -8px rgba(123, 63, 240, 0.22);
 }
 
 .cardWide {
@@ -256,21 +260,21 @@
 }
 
 .featureCardNum {
-  font-size: 0.875rem;
+  font-size: 13px;
   font-weight: 600;
   color: #7a7a7a;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1.75rem;
+  margin-bottom: 22px;
 }
 
 .featureCardTitle {
-  font-size: 1.625rem;
+  font-size: 20px;
   font-weight: 700;
   color: #111;
-  margin: 0 0 0.875rem;
-  letter-spacing: -0.03125rem;
-  line-height: 1.3;
+  margin: 0 0 18px;
+  letter-spacing: -0.5px;
+  line-height: 1.4;
 }
 
 .cardWide .featureCardTitle {
@@ -283,61 +287,63 @@
 }
 
 .featureCardDesc {
-  font-size: 0.9375rem;
+  font-size: 15px;
   color: #555;
-  line-height: 1.7;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
   margin: 0;
-  max-width: 30rem;
+  max-width: 480px;
 }
 
 /* Stat block (Card 01) */
 .statBlock {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin: 1.875rem 0;
+  gap: 16px;
+  margin: 16px 0;
 }
 
 .statRange {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #888;
   font-weight: 500;
 }
 
 .statRangeEnd {
-  font-size: 1.375rem;
+  font-size: 22px;
   color: #111;
   font-weight: 700;
 }
 
 .statRangeEnd small {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #7B3FF0;
-  margin-left: 0.125rem;
+  margin-left: 2px;
 }
 
 .statBar {
   flex: 1;
-  height: 0.375rem;
+  height: 6px;
   background: linear-gradient(90deg, #7B3FF0, #b89cff);
   border-radius: 999px;
 }
 
 /* Quote block (Card 02) */
 .quoteBlock {
-  margin: 0.5rem 0 1.75rem;
-  padding: 1.25rem 1.625rem;
+  margin: 8px 0 14px;
+  padding: 16px 20px;
   background: rgba(255, 255, 255, 0.5);
-  border: 0.0625rem solid rgba(123, 63, 240, 0.15);
-  border-radius: 0.75rem;
+  border: 1px solid rgba(123, 63, 240, 0.15);
+  border-radius: 12px;
   position: relative;
+  text-align: center;
 }
 
 .quoteMark {
   position: absolute;
-  top: 0.25rem;
-  left: 0.875rem;
-  font-size: 2.25rem;
+  top: 6px;
+  left: 14px;
+  font-size: 32px;
   color: #7B3FF0;
   font-family: Georgia, serif;
   line-height: 1;
@@ -345,63 +351,61 @@
 
 .quoteMarkEnd {
   position: absolute;
-  bottom: 0.25rem;
-  right: 0.875rem;
-  font-size: 2.25rem;
+  bottom: -12px;
+  right: 14px;
+  font-size: 32px;
   color: #7B3FF0;
   font-family: Georgia, serif;
   line-height: 1;
 }
 
 .quoteText {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #333;
   line-height: 1.7;
-  margin: 0.25rem 0 0.5rem;
-  padding-left: 1.375rem;
+  margin: 4px 0 8px;
   font-style: italic;
 }
 
 .quoteCite {
-  font-size: 0.6875rem;
+  font-size: 11px;
   color: #888;
   letter-spacing: 0.04em;
   margin: 0;
-  padding-left: 1.375rem;
 }
 
 /* Chat preview (Card 03) */
 .chatPreview {
-  margin: 0.5rem 0 1.75rem;
+  margin: 8px 0 14px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .chatBubbleUser {
   align-self: flex-end;
   background: #7B3FF0;
   color: white;
-  font-size: 0.8125rem;
-  padding: 0.625rem 0.875rem;
-  border-radius: 0.875rem 0.875rem 0.25rem 0.875rem;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 14px 14px 4px 14px;
   max-width: 80%;
 }
 
 .chatBubbleAi {
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.6);
-  border: 0.0625rem solid rgba(0, 0, 0, 0.06);
-  padding: 0.75rem 0.875rem;
-  border-radius: 0.875rem 0.875rem 0.875rem 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 12px 14px;
+  border-radius: 14px 14px 14px 4px;
   display: flex;
-  gap: 0.25rem;
+  gap: 4px;
   align-items: center;
 }
 
 .chatDot {
-  width: 0.3125rem;
-  height: 0.3125rem;
+  width: 5px;
+  height: 5px;
   background: #999;
   border-radius: 50%;
   animation: chatBounce 1.2s infinite ease-in-out;
@@ -417,7 +421,7 @@
 
 @keyframes chatBounce {
   0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-  40% { transform: translateY(-0.1875rem); opacity: 1; }
+  40% { transform: translateY(-3px); opacity: 1; }
 }
 
 /* Responsive bento */
@@ -437,28 +441,28 @@
 .ctaRow {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 20px;
 }
 
 .startBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   background: #111;
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 3.125rem;
+  padding: 16px 32px;
+  border-radius: 50px;
   border: none;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.15s;
-  letter-spacing: -0.0125rem;
+  letter-spacing: -0.2px;
 }
 
 .startBtn:hover {
   opacity: 0.82;
-  transform: translateY(-0.0625rem);
+  transform: translateY(-1px);
 }
 
 .startBtn:active {
@@ -466,43 +470,49 @@
 }
 
 .disclaimer {
-  font-size: 0.75rem;
+  font-size: 12px;
   color: #bbb;
 }
 
 /* ── Right 3D Panel ── */
 .splinePanel {
-  flex: 0 0 60vw;
+  flex: 1.1;
   position: relative;
-  align-self: stretch;
-  margin-right: -2.78vw;
-  overflow: hidden;
-}
-
-/* Hide Spline watermark (works because Spline React renders in same DOM) */
-.splinePanel a[href*="spline.design"],
-.splinePanel a[class*="watermark"],
-.splinePanel a[class*="logo"] {
-  display: none !important;
+  align-self: center;
+  height: 470px;
+  margin-left: -790px;
+  transform: translate(0, 50px) scale(0.8);
+  transform-origin: center center;
 }
 
 .splineFrame {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 35vw;
-  height: 35vw;
-  transform: translate(-50%, -50%);
+  top: -30%;
+  left: 0;
+  width: 130%;
+  height: 140%;
   border: none;
 }
 
+.splinePanel::after {
+  content: '';
+  position: absolute;
+  right: calc(-30% + 12px);
+  bottom: calc(-10% + 12px);
+  width: 220px;
+  height: 56px;
+  background: #f2f2f0;
+  border-radius: 28px;
+  z-index: 10;
+  pointer-events: none;
+}
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column-reverse;
-    padding: 2.5rem 1.5rem 3.75rem;
-    gap: 2.25rem;
+    padding: 40px 24px 60px;
+    gap: 36px;
     min-height: unset;
   }
 
@@ -510,7 +520,7 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     min-height: unset;
-    max-height: 22.5rem;
+    max-height: 360px;
     flex: unset;
     align-self: unset;
   }
@@ -530,7 +540,7 @@
 
   .ctaRow {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 12px;
     align-items: center;
   }
 

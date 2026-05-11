@@ -97,7 +97,7 @@ export default function IntroPage({ onStart }: IntroPageProps) {
                 <span className={styles.quoteMarkEnd}>”</span>
               </div>
               <h3 className={styles.featureCardTitle}>
-                항상 결과와 함께 출처도 알려줍니다.
+                항상 결과와 함께 출처도 안내합니다.
               </h3>
             </div>
 

@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
-  height: 3.5rem;
+  padding: 0 24px;
+  height: 56px;
   background: #111;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -14,45 +14,45 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .logoIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
   background: white;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .logoText {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: 700;
   color: white;
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.3px;
 }
 
 .badge {
-  font-size: 0.625rem;
+  font-size: 10px;
   font-weight: 700;
   color: white;
   background: transparent;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.35);
-  padding: 0.125rem 0.4375rem;
-  border-radius: 0.25rem;
-  letter-spacing: 0.03125rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
 }
 
 .backBtn {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.15);
-  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
-  border-radius: 1.25rem;
-  padding: 0.375rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -64,25 +64,25 @@
 .authRow {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .userName {
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
-  margin-right: 0.25rem;
+  margin-right: 4px;
 }
 
 .linkBtn {
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.375rem;
+  padding: 6px 12px;
+  border-radius: 6px;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -92,13 +92,13 @@
 }
 
 .primaryBtn {
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 600;
   color: white;
   background: #7B3FF0;
   border: none;
-  border-radius: 1.25rem;
-  padding: 0.4375rem 1rem;
+  border-radius: 20px;
+  padding: 7px 16px;
   cursor: pointer;
   transition: background 0.2s;
 }
