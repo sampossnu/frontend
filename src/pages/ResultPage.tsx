@@ -81,6 +81,8 @@ export default function ResultPage({ result, onBack, onReset }: ResultPageProps)
 
   return (
     <div className={styles.container}>
+      <div className={styles.mainGrid}>
+      <div className={styles.leftCol}>
       {/* Score Card */}
       <div className={`${styles.card} ${styles.scoreCard}`}>
         <p className={styles.scoreLabel}>간편심사 보험 · 가입 가능성</p>
@@ -116,7 +118,9 @@ export default function ResultPage({ result, onBack, onReset }: ResultPageProps)
         </div>
         <p className={styles.reason}>{result.reason}</p>
       </div>
+      </div>
 
+      <div className={styles.rightCol}>
       {/* Tabs */}
       <div className={styles.tabBar}>
         {(["factors", "suggestions", "chat"] as TabId[]).map((id) => {
@@ -239,6 +243,9 @@ export default function ResultPage({ result, onBack, onReset }: ResultPageProps)
           </div>
         </div>
       )}
+
+      </div>
+      </div>
 
       {/* Bottom Buttons */}
       <div className={styles.bottomBtns}>

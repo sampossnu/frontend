@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { User } from "../types";
 import styles from "./Navbar.module.css";
 
@@ -8,6 +8,7 @@ interface NavbarProps {
   onLogin: () => void;
   onSignup: () => void;
   onLogout: () => void;
+  onHistory: () => void;
 }
 
 export default function Navbar({
@@ -16,14 +17,24 @@ export default function Navbar({
   onLogin,
   onSignup,
   onLogout,
+  onHistory,
 }: NavbarProps) {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <nav className={styles.nav}>
-      <div
-        className={styles.logo}
-        onClick={onLogoClick}
-        style={{ cursor: "pointer" }}
-      >
+      <div className={styles.logo} onClick={onLogoClick} style={{ cursor: "pointer" }}>
         <div className={styles.logoIcon}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
             <path
@@ -47,7 +58,27 @@ export default function Navbar({
       <div className={styles.authRow}>
         {user ? (
           <>
-            <span className={styles.userName}>{user.name}님</span>
+            <div className={styles.userMenu} ref={dropdownRef}>
+              <button
+                className={styles.userName}
+                onClick={() => setDropdownOpen((v) => !v)}
+              >
+                {user.name}님
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ marginLeft: 4 }}>
+                  <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,0.7)" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+              {dropdownOpen && (
+                <div className={styles.dropdown}>
+                  <button
+                    className={styles.dropdownItem}
+                    onClick={() => { setDropdownOpen(false); onHistory(); }}
+                  >
+                    내 심사 이력
+                  </button>
+                </div>
+              )}
+            </div>
             <button className={styles.linkBtn} onClick={onLogout}>
               로그아웃
             </button>

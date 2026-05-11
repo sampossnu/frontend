@@ -45,33 +45,67 @@
   letter-spacing: 0.5px;
 }
 
-.backBtn {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  padding: 6px 16px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.backBtn:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
 .authRow {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.userMenu {
+  position: relative;
+}
+
 .userName {
+  display: flex;
+  align-items: center;
   font-size: 13px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
-  margin-right: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.userName:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 140px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: fadeDown 0.15s ease both;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.dropdownItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
 }
 
 .linkBtn {
@@ -84,6 +118,7 @@
   padding: 6px 12px;
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
+  font-family: inherit;
 }
 
 .linkBtn:hover {
@@ -101,8 +136,14 @@
   padding: 7px 16px;
   cursor: pointer;
   transition: background 0.2s;
+  font-family: inherit;
 }
 
 .primaryBtn:hover {
   background: #6A32D9;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -71,9 +71,7 @@ export async function signup(req: SignupRequest): Promise<{ message: string }> {
   return data;
 }
 
-export async function login(
-  req: LoginRequest
-): Promise<AuthTokens & { name?: string }> {
+export async function login(req: LoginRequest): Promise<AuthTokens & { name?: string }> {
   if (USE_MOCK) return mockLogin(req);
 
   const res = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -89,6 +87,25 @@ export async function login(
   }
 
   return { accessToken: data.accessToken, refreshToken: data.refreshToken };
+}
+
+export async function logout(tokens: {
+  accessToken: string;
+  refreshToken: string;
+}): Promise<void> {
+  if (USE_MOCK) {
+    await new Promise((r) => setTimeout(r, 200));
+    return;
+  }
+
+  await fetch(`${API_BASE_URL}/auth/logout`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${tokens.accessToken}`,
+    },
+    body: JSON.stringify({ refreshToken: tokens.refreshToken }),
+  });
 }
 
 export function saveAuth(tokens: AuthTokens, user: User) {
@@ -115,4 +132,8 @@ export function getStoredUser(): User | null {
 
 export function getAccessToken(): string | null {
   return localStorage.getItem(ACCESS_TOKEN_KEY);
+}
+
+export function getRefreshToken(): string | null {
+  return localStorage.getItem(REFRESH_TOKEN_KEY);
 }

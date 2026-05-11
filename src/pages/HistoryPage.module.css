@@ -1,0 +1,300 @@
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.backBtn {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.backBtn:hover {
+  border-color: #185fa5;
+  color: #185fa5;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* State */
+.stateBox {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #185fa5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+.stateText {
+  font-size: 15px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.stateSubText {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.errorText {
+  font-size: 14px;
+  color: #e24b4a;
+}
+
+/* List */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+
+.listItem:hover {
+  border-color: #185fa5;
+  box-shadow: 0 4px 16px rgba(24, 95, 165, 0.08);
+}
+
+.listItem:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.listLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gradeBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 4px 12px;
+  width: fit-content;
+}
+
+.listDate {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.listRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.listScore {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* Detail */
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.scoreCard {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.scoreCardLabel {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.scoreBadge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px 32px;
+  margin-bottom: 16px;
+}
+
+.scoreNum {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.scoreGrade {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.reason {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.75;
+  max-width: 440px;
+  margin: 0 auto 8px;
+}
+
+.createdAt {
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-top: 4px;
+}
+
+/* Section */
+.section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+/* Factor */
+.factorCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.factorCard:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.factorLabel {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a202c;
+  margin-bottom: 3px;
+}
+
+.factorClause {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.factorDelta {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e24b4a;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+/* Evidence */
+.evidenceBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f5f0ff;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.evidenceText {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.65;
+}
+
+/* Suggestion */
+.suggestionItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.suggestionItem:last-child {
+  margin-bottom: 0;
+}
+
+.checkIcon {
+  width: 22px;
+  height: 22px;
+  background: #e6f1fb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.suggestionText {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.65;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

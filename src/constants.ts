@@ -1,38 +1,42 @@
 import { Question } from "./types";
 
 export const QUESTIONS: Question[] = [
-  { id: "age", label: "나이", type: "number", placeholder: "예: 35", unit: "세" },
-  { id: "gender", label: "성별", type: "select", options: ["남성", "여성"] },
   {
-    id: "smoking",
-    label: "흡연 여부",
-    type: "select",
-    options: ["비흡연", "흡연 (현재)", "흡연 (과거 1년 이내)"],
-  },
-  { id: "bmi", label: "BMI", type: "number", placeholder: "예: 23.5", unit: "" },
-  {
-    id: "hospitalization",
-    label: "최근 5년 내 입원 이력",
-    type: "select",
-    options: ["없음", "1회", "2회 이상"],
+    id: "age",
+    label: "나이",
+    type: "number",
+    placeholder: "예: 45",
+    unit: "세",
   },
   {
-    id: "chronic",
-    label: "만성질환 보유",
+    id: "gender",
+    label: "성별",
     type: "select",
-    options: ["없음", "고혈압", "당뇨", "기타"],
+    options: ["남성", "여성"],
   },
   {
-    id: "cancer",
-    label: "암 진단 이력",
-    type: "select",
-    options: ["없음", "5년 이내", "5년 초과"],
+    id: "bmi",
+    label: "BMI",
+    type: "number",
+    placeholder: "예: 23.5",
   },
   {
-    id: "surgery",
-    label: "최근 3년 내 수술 이력",
+    id: "recentTreatment3m",
+    label: "최근 3개월 이내에 의사로부터 진찰 또는 검사를 통하여 다음 의료행위를 받은 사실이 있으십니까? (입원 필요 소견, 수술 필요 소견, 추가검사 필요 소견, 질병확정진단, 질병의심소견)",
     type: "select",
-    options: ["없음", "경미한 수술", "주요 수술"],
+    options: ["아니오", "예"],
+  },
+  {
+    id: "hospitalizationSurgery5y",
+    label: "최근 5년 이내에 질병이나 상해사고로 인하여 입원 또는 수술(제왕절개 포함)을 받은 사실이 있으십니까?",
+    type: "select",
+    options: ["아니오", "예"],
+  },
+  {
+    id: "seriousDiagnosis5y",
+    label: "최근 5년 이내에 암, 협심증, 심근경색, 뇌졸중(뇌출혈·뇌경색), 심장판막증으로 진단·입원·수술을 받은 사실이 있으십니까?",
+    type: "select",
+    options: ["아니오", "예"],
   },
 ];
 

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Page, FormData, UnderwriteResult, User } from "./types";
-import { calculateResult } from "./utils/scoring";
-import { clearAuth, getStoredUser } from "./utils/auth";
+import { clearAuth, getStoredUser, getAccessToken, getRefreshToken, logout } from "./utils/auth";
 import Navbar from "./components/Navbar";
 import IntroPage from "./pages/IntroPage";
 import FormPage from "./pages/FormPage";
 import ResultPage from "./pages/ResultPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import HistoryPage from "./pages/HistoryPage";
 
 export default function App() {
   const [page, setPage] = useState<Page>("intro");
@@ -19,8 +19,7 @@ export default function App() {
     setForm((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = () => {
-    const res = calculateResult(form as FormData);
+  const handleSubmitResult = (res: UnderwriteResult) => {
     setResult(res);
     setPage("result");
   };
@@ -31,7 +30,12 @@ export default function App() {
     setResult(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const accessToken = getAccessToken();
+    const refreshToken = getRefreshToken();
+    if (accessToken && refreshToken) {
+      await logout({ accessToken, refreshToken }).catch(() => {});
+    }
     clearAuth();
     setUser(null);
     handleReset();
@@ -45,13 +49,14 @@ export default function App() {
         onLogin={() => setPage("login")}
         onSignup={() => setPage("signup")}
         onLogout={handleLogout}
+        onHistory={() => setPage("history")}
       />
       {page === "intro" && <IntroPage onStart={() => setPage("form")} />}
       {page === "form" && (
         <FormPage
           form={form}
           onChange={handleFormChange}
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmitResult}
           onBack={() => setPage("intro")}
         />
       )}
@@ -76,6 +81,9 @@ export default function App() {
           onSignedUp={() => setPage("login")}
           onGoLogin={() => setPage("login")}
         />
+      )}
+      {page === "history" && (
+        <HistoryPage onBack={() => setPage("intro")} />
       )}
     </div>
   );

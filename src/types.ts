@@ -1,4 +1,4 @@
-export type Page = "intro" | "form" | "result" | "login" | "signup";
+export type Page = "intro" | "form" | "result" | "login" | "signup" | "history";
 
 export interface User {
   email: string;
@@ -26,12 +26,10 @@ export type TabId = "factors" | "suggestions" | "chat";
 export interface FormData {
   age: string;
   gender: string;
-  smoking: string;
   bmi: string;
-  hospitalization: string;
-  chronic: string;
-  cancer: string;
-  surgery: string;
+  recentTreatment3m: string;
+  hospitalizationSurgery5y: string;
+  seriousDiagnosis5y: string;
 }
 
 export interface RiskFactor {
@@ -40,11 +38,29 @@ export interface RiskFactor {
   clause: string;
 }
 
+export interface ApiRiskFactor {
+  factor: string;
+  impact: number;
+}
+
+export type Grade = "APPROVED" | "PARTIAL" | "REJECTED";
+
 export interface UnderwriteResult {
+  id?: number;
   score: number;
+  grade?: Grade;
   factors: RiskFactor[];
   suggestions: string[];
   reason: string;
+  evidence?: string;
+  createdAt?: string;
+}
+
+export interface UnderwriteHistoryItem {
+  id: number;
+  probability: number;
+  grade: Grade;
+  createdAt: string;
 }
 
 export interface ChatMessage {
