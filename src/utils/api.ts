@@ -31,7 +31,7 @@ export async function submitUnderwrite(form: FormData): Promise<UnderwriteResult
     id: data.id,
     score: Math.round(data.probability * 100),
     grade: data.grade,
-    factors: (data.riskFactors as ApiRiskFactor[]).map((f) => ({
+    factors: (data.riskFactors || []).map((f: ApiRiskFactor) => ({
       label: f.factor,
       delta: Math.round(f.impact * 100),
       clause: "",
@@ -54,7 +54,7 @@ export async function fetchUnderwriteHistory(): Promise<UnderwriteHistoryItem[]>
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.message || "이력 조회에 실패했습니다.");
 
-  return data.history as UnderwriteHistoryItem[];
+  return (data.history || []) as UnderwriteHistoryItem[];
 }
 
 export async function fetchUnderwriteDetail(id: number): Promise<UnderwriteResult> {
@@ -70,13 +70,13 @@ export async function fetchUnderwriteDetail(id: number): Promise<UnderwriteResul
     id: data.id,
     score: Math.round(data.probability * 100),
     grade: data.grade,
-    factors: (data.riskFactors as ApiRiskFactor[]).map((f) => ({
+    factors: (data.riskFactors || []).map((f: ApiRiskFactor) => ({
       label: f.factor,
       delta: Math.round(f.impact * 100),
       clause: "",
     })),
     suggestions: data.suggestion ? [data.suggestion] : [],
-    reason: data.reason,
+    reason: data.reason ?? "",
     evidence: data.evidence,
     createdAt: data.createdAt,
   };
