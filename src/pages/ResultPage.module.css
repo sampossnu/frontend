@@ -1,10 +1,41 @@
 .container {
-  max-width: 480px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px 60px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 1.4fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 24px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+  .leftCol {
+    position: static;
+  }
 }
 
 .card {

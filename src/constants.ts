@@ -1,38 +1,96 @@
 import { Question } from "./types";
 
 export const QUESTIONS: Question[] = [
-  { id: "age", label: "나이", type: "number", placeholder: "예: 35", unit: "세" },
-  { id: "gender", label: "성별", type: "select", options: ["남성", "여성"] },
+  {
+    id: "name",
+    label: "이름",
+    type: "text",
+    placeholder: "예: 홍길동",
+  },
+  {
+    id: "age",
+    label: "나이",
+    type: "number",
+    placeholder: "예: 45",
+    unit: "세",
+  },
+  {
+    id: "gender",
+    label: "성별",
+    type: "select",
+    options: ["남성", "여성"],
+  },
+  {
+    id: "height",
+    label: "신장",
+    type: "number",
+    placeholder: "예: 170",
+    unit: "cm",
+  },
+  {
+    id: "weight",
+    label: "체중",
+    type: "number",
+    placeholder: "예: 65",
+    unit: "kg",
+  },
   {
     id: "smoking",
     label: "흡연 여부",
     type: "select",
     options: ["비흡연", "흡연 (현재)", "흡연 (과거 1년 이내)"],
   },
-  { id: "bmi", label: "BMI", type: "number", placeholder: "예: 23.5", unit: "" },
   {
-    id: "hospitalization",
-    label: "최근 5년 내 입원 이력",
+    id: "alcohol",
+    label: "음주 여부",
     type: "select",
-    options: ["없음", "1회", "2회 이상"],
+    options: ["비음주", "가끔 (월 1-2회)", "자주 (주 1회 이상)"],
   },
   {
-    id: "chronic",
-    label: "만성질환 보유",
+    id: "recentTreatment3m",
+    label: "최근 3개월 이내에 의사로부터 진찰 또는 검사를 통하여 다음 의료행위를 받은 사실이 있으십니까? (입원 필요 소견, 수술 필요 소견, 추가검사 필요 소견, 질병확정진단, 질병의심소견)",
     type: "select",
-    options: ["없음", "고혈압", "당뇨", "기타"],
+    options: ["아니오", "예"],
   },
   {
-    id: "cancer",
-    label: "암 진단 이력",
+    id: "hospitalizationSurgery5y",
+    label: "최근 5년 이내에 질병이나 상해사고로 인하여 입원 또는 수술(제왕절개 포함)을 받은 사실이 있으십니까?",
     type: "select",
-    options: ["없음", "5년 이내", "5년 초과"],
+    options: ["아니오", "예"],
   },
   {
-    id: "surgery",
-    label: "최근 3년 내 수술 이력",
+    id: "seriousDiagnosis5y",
+    label: "최근 5년 이내에 암, 협심증, 심근경색, 뇌졸중(뇌출혈·뇌경색), 심장판막증으로 진단·입원·수술을 받은 사실이 있으십니까?",
     type: "select",
-    options: ["없음", "경미한 수술", "주요 수술"],
+    options: ["아니오", "예"],
+  },
+  {
+    id: "jobCategory",
+    label: "직업 분류",
+    type: "select",
+    options: [
+      "사무직",
+      "영업/판매직",
+      "서비스직",
+      "생산/기능직",
+      "전문직",
+      "학생",
+      "주부",
+      "무직",
+      "기타",
+    ],
+  },
+  {
+    id: "monthlyIncome",
+    label: "월평균 소득",
+    type: "select",
+    options: [
+      "200만원 미만",
+      "200-300만원",
+      "300-500만원",
+      "500-700만원",
+      "700만원 이상",
+    ],
   },
 ];
 
@@ -44,3 +102,64 @@ export const QUICK_QUESTIONS = [
   "대안 보험 상품이 있나요?",
   "확률을 높이려면 어떻게 해야 하나요?",
 ];
+
+export const INSURANCE_TYPES = [
+  "장기보험",
+  "자동차보험",
+  "일반보험",
+  "퇴직연금",
+  "퇴직보험",
+];
+
+export const INSURANCE_PRODUCTS: Record<string, string[]> = {
+  "자동차보험": ["개인용 자동차보험", "영업용 자동차보험", "이륜차 보험"],
+  "일반보험": ["화재보험", "배상책임보험", "여행자보험", "상해보험"],
+  "퇴직연금": ["DB형 퇴직연금", "DC형 퇴직연금", "IRP"],
+  "퇴직보험": ["퇴직위로금보험", "퇴직금보험"],
+};
+
+export const LONG_TERM_CHANNELS = [
+  "대면",
+  "TM/홈쇼핑",
+  "인터넷",
+  "방카슈랑스",
+  "제도성특약",
+  "독립특별약관",
+  "전화계약",
+];
+
+export const LONG_TERM_CATEGORIES: Record<string, string[]> = {
+  "대면": [
+    "건강",
+    "운전자",
+    "자녀",
+    "상해",
+    "단체",
+    "재물",
+    "저축",
+    "연금",
+    "통합형",
+    "기타",
+    "가정종합",
+    "비용보험",
+  ],
+};
+
+export const LONG_TERM_PRODUCTS: Record<string, Record<string, string[]>> = {
+  "대면": {
+    "건강": [
+      "무배당 삼성화재 간편보험 새로고침100세(2404.3)",
+      "무배당 삼성화재 간편보험 3.10.5 새로고침(납입면제, 해약환급금 미지급형)",
+      "무배당 삼성화재 간편보험 3.10.5 새로고침100세(2601.4)(납입면제,해약환급금 미지급형II)",
+      "무배당 삼성화재 간편보험 311·5 새로고침(2601.4)(자동갱신형) 1종(납입면제,해약환급금 미지급형)",
+      "무배당 삼성화재 간편보험 311·5 새로고침(2601.4)(자동갱신형) 2종(납입면제,해약환급금 미지급형, 일반고지)",
+      "무배당 삼성화재 간편보험 365 당당한 새로고침100세(2604.1) 1종(납입면제, 해약환급금 미지급형II)",
+      "무배당 삼성화재 간편보험 365 당당한 새로고침100세(2604.1) 2종(해약환급금 미지급형II)",
+      "무배당 삼성화재 간편보험 365 알뜰한 새로고침(2601.3)(자동갱신형)(납입면제,해약환급금 미지급형)",
+      "무배당 삼성화재 간편보험 365 알뜰한 새로고침100세(2601.4) 1종(납입면제,해약환급금 미지급형II)",
+      "무배당 삼성화재 간편보험 365 알뜰한 새로고침100세(2601.4) 3종(납입면제형)",
+      "무배당 삼성화재 간편보험 3655 고고 새로고침100세(2601.4)(납입면제,해약환급금 미지급형II)",
+      "무배당 삼성화재 간편보험 간편하게 건강하게(1601.1) 10년만기 재가입형 1종(간편심사형) 재가입계약용(2601)(자동갱신형)",
+    ],
+  },
+};
