@@ -24,12 +24,22 @@ export interface LoginRequest {
 export type TabId = "factors" | "suggestions" | "chat";
 
 export interface FormData {
+  insuranceType: string;
+  insuranceChannel: string;
+  insuranceCategory: string;
+  insuranceProduct: string;
+  name: string;
   age: string;
   gender: string;
-  bmi: string;
+  height: string;
+  weight: string;
+  smoking: string;
+  alcohol: string;
   recentTreatment3m: string;
   hospitalizationSurgery5y: string;
   seriousDiagnosis5y: string;
+  jobCategory: string;
+  monthlyIncome: string;
 }
 
 export interface RiskFactor {
@@ -71,7 +81,7 @@ export interface ChatMessage {
 export interface Question {
   id: keyof FormData;
   label: string;
-  type: "number" | "select";
+  type: "text" | "number" | "select";
   placeholder?: string;
   unit?: string;
   options?: string[];

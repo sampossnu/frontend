@@ -31,12 +31,33 @@ export function calculateResult(form: FormData): UnderwriteResult {
     });
   }
 
-  const bmiNum = parseFloat(form.bmi);
+  const heightM = parseFloat(form.height) / 100;
+  const weightKg = parseFloat(form.weight);
+  const bmiNum =
+    !isNaN(heightM) && heightM > 0 && !isNaN(weightKg)
+      ? weightKg / (heightM * heightM)
+      : NaN;
   if (!isNaN(bmiNum) && bmiNum >= 35) {
     score -= 10;
     factors.push({
-      label: "고도비만 (BMI 35 이상)",
+      label: `고도비만 (BMI ${bmiNum.toFixed(1)})`,
       delta: -10,
+      clause: "인수심사 기준",
+    });
+  }
+
+  if (form.smoking === "흡연 (현재)") {
+    score -= 10;
+    factors.push({
+      label: "현재 흡연 중",
+      delta: -10,
+      clause: "인수심사 기준",
+    });
+  } else if (form.smoking === "흡연 (과거 1년 이내)") {
+    score -= 5;
+    factors.push({
+      label: "최근 1년 이내 흡연 이력",
+      delta: -5,
       clause: "인수심사 기준",
     });
   }
