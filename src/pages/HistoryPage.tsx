@@ -85,7 +85,7 @@ function formatDate(dateStr: string): string {
 export default function HistoryPage({ onBack }: HistoryPageProps) {
   const [history, setHistory] = useState<UnderwriteHistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
   const [selected, setSelected] = useState<UnderwriteResult | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
 
